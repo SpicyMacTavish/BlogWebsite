@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../static/css/individualBlog.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet" />
+    <title>Blogs</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <h1 id="website_name">Blooger</h1>
+        </div>
+        <div class="navbar">
+            <nav></nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="body">
+            <div class="blog">
+                <div class="bloginfo">
+                    <div id="user_info">
+                        <%= individualblog.user_name %> : <span>Posted On </span>
+                            <%= individualblog.post_date.toLocaleDateString('en-GB') %>
+                    </div>
+                    <div id="blog_title">
+                        <h2>
+                            <%= individualblog.blog_title %>
+                        </h2>
+                    </div>
+                    <div id="blog_description">
+                        <%= individualblog.blog_description %>
+                    </div>
+                </div>
+                <form method="POST" action="/<%= user_id %>/<%= individualblog._id %> " id="comment_post">
+                    <textarea type="String" name="blog_comment" placeholder="Comment your thoughts"></textarea>
+                    <button id="submit_btn">SUBMIT</button>
+                </form>
+                <div class="comments">
+                    <% comments.forEach(function(comment){ %>
+                        <div id="each_comment">
+                            <div id="user_details">
+                                <%= comment.user_name %>:
+                                    <span>
+                                        <%= comment.post_date.toLocaleDateString('en-GB') %>
+                                    </span>
+                            </div>
+                            <%= comment.comment %>
+                        </div>
+
+                        <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/jquery-3.5.1.min.js"></script>
+</body>
+
+</html>

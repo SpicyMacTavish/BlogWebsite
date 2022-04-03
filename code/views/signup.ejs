@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign-Up</title>
+  <link rel="stylesheet" href="../static/css/signup.css">
+  <link rel="stylesheet" href="../static/css/all.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div class="title"><span>SignUp For Exciting Content</span></div>
+      <form method="post" action="/signup" enctype="application/x-www-form-urlencoded">
+        <div class="row">
+          <i class="fas fa-user"></i>
+          <input name="email_id" type="text" placeholder="EMAIL ID" required>
+        </div>
+        <div class="row">
+          <i class="fas fa-user"></i>
+          <input name="full_name" type="text" placeholder="FULL NAME" required>
+        </div>
+        <div class="row">
+          <i class="fas fa-user"></i>
+          <input name="address" type="text" placeholder="ADDRESS" required>
+        </div>
+        <div class="row">
+          <i class="fas fa-lock"></i>
+          <input name="password" type="password" placeholder="PASSWORD" required>
+        </div>
+        <div class="row">
+          <i class="fas fa-lock"></i>
+          <input name="confirm_password" type="password" placeholder="CONFIRM PASSWORD" required>
+        </div>
+        <div class="row button">
+            <input type="submit" value="SIGN UP">
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

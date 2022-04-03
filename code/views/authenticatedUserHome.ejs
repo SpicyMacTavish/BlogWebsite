@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blooger</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../static/css/all.css">
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="../static/css/home.css">
+
+
+</head>
+
+<body>
+
+    <!-- ----------------------------  Navigation ---------------------------------------------- -->
+
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="/<%= user_id %>" class="text-gray">Blooger</a>
+            </div>
+            <div class="toggle-collapse">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <ul class="nav-items">
+                <li class="nav-link">
+                    <a href="#">
+                        <%= full_name %>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="#">Log Out</a>
+                </li>
+                <li class="nav-link">
+                    <a href="#">Category</a>
+                </li>
+                <li class="nav-link">
+                    <a href="#">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+
+        <section class="site-title">
+            <div class="site-background">
+                <p id="butn">"Let's Create.. Our Own Ideas!"</p>
+                <a href="/<%= user_id %>/createBlog"><button class="btn1">Start Writing</button></a>
+
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="site-content">
+                <div class="posts">
+                    <% blogs.forEach(function(blog){ %>
+                        <div class="post-content">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../uploads/blogs/<%= blog.uploaded_image %>" class="img" alt="blog1">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;<%= blog.user_name %></span>
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;<%=
+                                            blog.post_date.toLocaleDateString('en-GB') %></span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <span>
+                                    <h2>
+                                        <%= blog.blog_title %>
+                                    </h2>
+                                </span>
+                                <p style="color: black;size: 1rem;">
+                                    <%= blog.blog_description %>
+                                </p>
+                                <button class="btn post-btn"><a href="/<%= user_id %>/<%= blog._id %>">Read More</a>
+                                    &nbsp; <i class="fas fa-arrow-right"></i></button>
+
+                            </div>
+
+                        </div>
+                        <% }) %>
+                </div>
+
+
+
+                <aside class="sidebar">
+                    <div class="category">
+                        <h2>Category</h2>
+                        <ul class="category-list">
+                            <li class="list-items">
+                                <a href="/<%= user_id %>/123">Software</a>
+                                <span>(<%= noOfBusinessBlogs %>)</span>
+                            </li>
+                            <li class="list-items">
+                                <a href="#">Family</a>
+                                <span>(<%= noOfFamilyBlogs %>)</span>
+                            </li>
+                            <li class="list-items">
+                                <a href="#">Entertainment</a>
+                                <span>(<%= noOEntertainmentBlogs %>)</span>
+                            </li>
+                            <li class="list-items">
+                                <a href="#">Health</a>
+                                <span>(<%= noOfHealthBlogs %>)</span>
+                            </li>
+                            <li class="list-items">
+                                <a href="#">Politics</a>
+                                <span>(<%= noOfPoliticsBlogs %>)</span>
+                            </li>
+                            <li class="list-items">
+                                <a href="#">Religion</a>
+                                <span>(<%= noOfReligionBlogs %>)</span>
+                            </li>
+                            <li class="list-items">
+                                <a href="#">Science</a>
+                                <span>(<%= noOfScienceBlogs %>)</span>
+                            </li>
+                            <li class="list-items">
+                                <a href="#">Sports</a>
+                                <span>(<%= noOfSportsBlogs %>)</span>
+                            </li>
+                            <li class="list-items">
+                                <a href="#">Technology</a>
+                                <span>(<%= noOfTechnologyBlogs %>)</span>
+                            </li>
+                            <li class="list-items">
+                                <a href="#">Travel</a>
+                                <span>(<%= noOfTravelBlogs %>)</span>
+                            </li>
+                            <li class="list-items">
+                                <a href="#">Video</a>
+                                <span>(<%= noOfVideoBlogs %>)</span>
+                            </li>
+                            <li class="list-items">
+                                <a href="#">World</a>
+                                <span>(<%= noOfWorldBlogs %>)</span>
+                            </li>
+                            <li class="list-items">
+                                <a href="#">Car</a>
+                                <span>(<%= noOfCarBlogs %>)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="popular-tags">
+                        <h2>Popular Tags</h2>
+                        <div class="tags flex-row">
+                            <span class="tag">Software</span>
+                            <span class="tag">technology</span>
+                            <span class="tag">travel</span>
+                            <span class="tag">illustration</span>
+                            <span class="tag">design</span>
+                            <span class="tag">lifestyle</span>
+                            <span class="tag">love</span>
+                            <span class="tag">project</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+
+
+        <footer class="footer">
+            <div class="container">
+                <div class="about-us" data>
+                    <h2>About us</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi
+                        officiis
+                        iure, autem nulla tenetur repellendus.</p>
+                </div>
+                <div class="rights flex-row">
+                    <h4 class="text-gray">
+                        Copyright ©2022 All rights reserved
+                    </h4>
+                </div>
+        </footer>
+        <script src="./js/Jquery.min.js"></script>
+        <script src="./js/main.js"></script>
+</body>
+
+</html>
